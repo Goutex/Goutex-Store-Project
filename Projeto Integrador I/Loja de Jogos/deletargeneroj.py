@@ -9,10 +9,10 @@ conexao = mysql.connector.connect(
 
 cursor = conexao.cursor()
 
-def deletarJogo():
+def deletarGeneroJ():
     cursor = conexao.cursor()
-    idjogo = input("Digite o ID do jogo a ser deletado: ")
-    sql = f"DELETE FROM jogos WHERE idjogo = '{idjogo}'"
+    idgeneroj = input("Digite o ID do genero a ser deletado: ")
+    sql = f"DELETE FROM generosjogo WHERE idgeneroj = '{idgeneroj}'"
     cursor.execute(sql)
     conexao.commit()
-    print("Jogo deletado com sucesso!")
+    print("Genero deletado com sucesso!")

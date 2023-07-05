@@ -2,12 +2,13 @@ import adicionargeneroj
 import exibirgenerosj
 import descricaogeneroj
 import atualizargeneroj
+import deletargeneroj
 import mysql.connector
 
 conexao = mysql.connector.connect(
     host = "localhost",
     user = "root",
-    password = "root",#SUA SENHA
+    password = "Sen@c2021",#SUA SENHA
     database = "projetinho", #SEU DATABASE
 )
 cursor = conexao.cursor()
@@ -20,6 +21,7 @@ def menu():
         print("2. Exibir Generos")
         print("3. Atualizar Genero")
         print("4. Exibir descricao do Genero")
+        print("5. Deletar Genero")
         print("0. Sair")
 
         opcao = input("Digite a opção desejada: ")
@@ -36,6 +38,9 @@ def menu():
 
         elif opcao == "4":
             descricaogeneroj.exibirDescricaoGeneroJ()
+
+        elif opcao == "5":
+            deletargeneroj.deletarGeneroJ()
         
         elif opcao == "0":
             print("Saindo...")
