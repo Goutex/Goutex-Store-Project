@@ -1,0 +1,1 @@
+print("\nTem que funcionar o paralelo\n")
