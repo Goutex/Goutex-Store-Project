@@ -1,0 +1,12 @@
+import adicionarjogo
+import atualizarjogo
+import exibirgenerosj
+import informacoesdosjogos
+import mostrarjogos
+import deletarjogo
+import adicionargeneroj
+import exibirgenerosj
+import descricaogeneroj
+import atualizargeneroj
+import deletargeneroj
+import mysql.connector

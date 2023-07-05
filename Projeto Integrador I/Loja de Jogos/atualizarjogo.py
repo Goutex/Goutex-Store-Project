@@ -23,3 +23,4 @@ def atualizarJogo():
 # atualizarJogo()
 # cursor.close()
 # conexao.close()
+

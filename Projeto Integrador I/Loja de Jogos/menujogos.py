@@ -34,6 +34,7 @@ def menu():
             conexao.commit()
 
         elif opcao == "2":
+            informacoesdosjogos.exibirInformacoesDosJogos()
             atualizarjogo.atualizarJogo()
             conexao.commit()
 
