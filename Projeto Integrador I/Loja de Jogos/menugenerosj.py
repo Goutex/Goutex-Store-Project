@@ -1,13 +1,14 @@
 import adicionargeneroj
 import exibirgenerosj
 import descricaogeneroj
+import atualizargeneroj
 import mysql.connector
 
 conexao = mysql.connector.connect(
     host = "localhost",
     user = "root",
-    password = "180957",#SUA SENHA
-    database = "projeto1", #SEU DATABASE
+    password = "root",#SUA SENHA
+    database = "projetinho", #SEU DATABASE
 )
 cursor = conexao.cursor()
 
@@ -17,7 +18,8 @@ def menu():
         print("\n--- Sistema de manutencao de generos dos jogos ---")
         print("1. Adicionar Genero")
         print("2. Exibir Generos")
-        print("3. Exibir descricao do Genero")
+        print("3. Atualizar Genero")
+        print("4. Exibir descricao do Genero")
         print("0. Sair")
 
         opcao = input("Digite a opção desejada: ")
@@ -30,9 +32,13 @@ def menu():
             exibirgenerosj.exibirGenerosJ()
 
         elif opcao == "3":
+            atualizargeneroj.atualizarGeneroJ()
+
+        elif opcao == "4":
             descricaogeneroj.exibirDescricaoGeneroJ()
         
         elif opcao == "0":
+            print("Saindo...")
             break
 
         else:
