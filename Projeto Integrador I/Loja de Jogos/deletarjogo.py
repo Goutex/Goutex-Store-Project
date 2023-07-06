@@ -18,3 +18,4 @@ def deletarJogo():
     cursor.execute(sql)
     conexao.commit()
     print("Jogo deletado com sucesso!")
+    
