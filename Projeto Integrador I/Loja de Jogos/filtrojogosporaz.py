@@ -1,10 +1,12 @@
 import mysql.connector
+from connector import host, user, password, database
 
 conexao = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="Sen@c2021",  # SUA SENHA
-    database="projetinho",  # SEU DATABASE
+
+    host = host,
+    user = user,
+    password= password,  
+    database= database,  
 )
 
 cursor = conexao.cursor()
@@ -19,5 +21,5 @@ for jogo in jogos:
     print(f"{jogo[0]}. {jogo[1]}")
 
 # Fechar cursor e conexão
-cursor.close()
-conexao.close()
+# cursor.close()
+# conexao.close()

@@ -1,11 +1,14 @@
 import mysql.connector
+from connector import host, user, password, database
 
 conexao = mysql.connector.connect(
-    host = "localhost",
-    user = "root",
-    password = "Sen@c2021",#SUA SENHA
-    database = "projetinho", #SEU DATABASE
+
+    host = host,
+    user = user,
+    password= password,  
+    database= database,  
 )
+
 cursor = conexao.cursor()
 
 def atualizarGeneroJ():

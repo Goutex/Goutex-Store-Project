@@ -1,13 +1,14 @@
 import mysql.connector
 import importar
+from connector import user, database, password, host
 
-class Loja:
+class Admin:
     def __init__(self):
         self.conexao = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            password="Sen@c2021",  # SUA SENHA
-            database="projetinho",  # SEU DATABASE
+            host = host,
+            user = user,
+            password= password,
+            database= database
         )
         self.cursor = self.conexao.cursor()
 
@@ -108,5 +109,5 @@ class Loja:
         self.conexao.close()
 
 
-loja = Loja()
-loja.run()
+admin = Admin()
+admin.run()
