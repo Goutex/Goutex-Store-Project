@@ -60,4 +60,4 @@ def definirNick(usuario):
         print(f"Erro ao adicionar nick: {error}")
 
 # Fechando a conexão com o banco de dados
-conexao.close()
+# conexao.close()

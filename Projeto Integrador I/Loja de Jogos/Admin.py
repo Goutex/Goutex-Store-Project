@@ -46,4 +46,4 @@ class Admin:
         self.conexao.close()
 
 admin = Admin()
-admin.run()
+# admin.run()

@@ -26,9 +26,10 @@ def cadastro():
 
         if opcao == "1":
             importar.cadastrousuario.cadastroUsuario()
+            print("\nAgora que voce terminou o cadastro pode fazer o login!")
+            break
 
         elif opcao == "2":
-            print("Tchau Tchau")
             break
 
 # cadastro()

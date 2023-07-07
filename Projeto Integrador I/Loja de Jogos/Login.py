@@ -1,5 +1,6 @@
 import mysql.connector
 from connector import host, user, password, database
+from Admin import admin
 
 conexao = mysql.connector.connect(
     host=host,
@@ -14,18 +15,20 @@ def verificarLogin():
     usuario = input("Digite o nome de usuário: ")
     senha = input("Digite a senha: ")
 
-    sql = "SELECT * FROM cadastrouser WHERE usuario = %s AND senha = %s"
-    values = (usuario, senha)
-
-    cursor.execute(sql, values)
-    resultado = cursor.fetchone()
-
-    if resultado:
-        print("Login realizado com sucesso!")
+    if usuario == "admin" and senha == "admin":
+        admin.run()
     else:
-        print("Usuário ou senha inválidos.")
+        sql = "SELECT * FROM cadastrouser WHERE usuario = %s AND senha = %s"
+        values = (usuario, senha)
 
-    cursor.close()
+        cursor.execute(sql, values)
+        resultado = cursor.fetchone()
 
-# Exemplo de uso
+        if resultado:
+            print("Login realizado com sucesso!")
+        else:
+            print("Usuário ou senha inválidos.")
+
+    # cursor.close()
+
 # verificarLogin()
