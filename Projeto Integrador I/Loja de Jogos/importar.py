@@ -12,3 +12,6 @@ import deletargeneroj
 import mysql.connector
 import menugenerosj
 import menujogos
+import menujogouser
+from connector import host, user, password, database
+import cadastrousuario
