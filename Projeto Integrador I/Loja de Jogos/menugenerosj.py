@@ -53,7 +53,7 @@ def menu():
         else:
             print("\nOpção inválida. Digite novamente.")
 
-menu()
+# menu()
 
 # cursor.close()
 # conexao.close()

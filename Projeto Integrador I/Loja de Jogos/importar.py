@@ -10,3 +10,5 @@ import descricaogeneroj
 import atualizargeneroj
 import deletargeneroj
 import mysql.connector
+import menugenerosj
+import menujogos

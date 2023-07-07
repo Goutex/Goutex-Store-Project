@@ -16,7 +16,7 @@ def exibirGenerosJ():
     generos = cursor.fetchall()
     print("Lista de Gêneros:")
     for genero in generos:
-        print(f"{genero[0]}. {genero[2]}")
+        print(f"{genero[0]}. {genero[1]}")
 
 # exibirGenerosJ()
 # cursor.close()

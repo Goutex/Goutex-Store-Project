@@ -11,7 +11,7 @@ conexao = mysql.connector.connect(
 cursor = conexao.cursor()
 
 # Executar a consulta SELECT
-selecionando = "SELECT * FROM jogos ORDER BY nomejogo ASC"
+selecionando = "SELECT * FROM jogos ORDER BY nomejogo DESC"
 cursor.execute(selecionando)
 
 jogos = cursor.fetchall()
