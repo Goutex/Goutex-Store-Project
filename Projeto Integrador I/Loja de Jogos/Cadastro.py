@@ -18,7 +18,6 @@ def cadastro():
     print("\n                      --- Bem Vindo! --- \n")
     print(" Para acessar a Goutex Store voce precisa fazer seu cadastro! ")
 
-def menu():
     while True:
         print("\n--- Podemos comecar? ---:")
         print("1. Sim")
@@ -32,8 +31,8 @@ def menu():
             print("Tchau Tchau")
             break
 
-cadastro()
-menu()
+# cadastro()
+# menu()
 
 
 

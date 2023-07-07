@@ -12,7 +12,7 @@ conexao = mysql.connector.connect(
 cursor = conexao.cursor()
 
 def cadastroUsuario():
-    nome = input("Digite seu nome completo: ")
+    nome = input("\nDigite seu nome completo: ")
     usuario = input("Digite o seu nome de Usuário: ")
     senha = input("Digite uma senha: ")
     ano = input("Digite o ano que você nasceu: ")

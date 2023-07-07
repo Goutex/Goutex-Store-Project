@@ -1,47 +1,31 @@
 import mysql.connector
-import importar
+from connector import host, user, password, database
 
-class VerificadorLogin:
-    def __init__(self):
-        self.host = importar.host
-        self.user = importar.user
-        self.password = importar.password
-        self.database = importar.database
-        self.conexao = None
+conexao = mysql.connector.connect(
+    host=host,
+    user=user,
+    password=password,
+    database=database
+)
 
-    def conectar(self):
-        self.conexao = mysql.connector.connect(
-            host=self.host,
-            user=self.user,
-            password=self.password,
-            database=self.database
-        )
+def verificarLogin():
+    cursor = conexao.cursor()
 
-    def desconectar(self):
-        if self.conexao:
-            self.conexao.close()
+    usuario = input("Digite o nome de usuário: ")
+    senha = input("Digite a senha: ")
 
-    def verificar_login(self):
-        usuario = input("Digite o nome de usuário: ")
-        senha = input("Digite a senha: ")
+    sql = "SELECT * FROM cadastrouser WHERE usuario = %s AND senha = %s"
+    values = (usuario, senha)
 
-        self.conectar()
-        cursor = self.conexao.cursor()
+    cursor.execute(sql, values)
+    resultado = cursor.fetchone()
 
-        sql = "SELECT * FROM cadastrouser WHERE usuario = %s AND senha = %s"
-        values = (usuario, senha)
+    if resultado:
+        print("Login realizado com sucesso!")
+    else:
+        print("Usuário ou senha inválidos.")
 
-        cursor.execute(sql, values)
-        resultado = cursor.fetchone()
-
-        if resultado:
-            print("Login realizado com sucesso!")
-        else:
-            print("Usuário ou senha inválidos.")
-
-        cursor.close()
-        self.desconectar()
+    cursor.close()
 
 # Exemplo de uso
-verificador = VerificadorLogin()
-verificador.verificar_login()
+# verificarLogin()
