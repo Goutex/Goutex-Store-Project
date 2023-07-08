@@ -11,7 +11,7 @@ conexao = mysql.connector.connect(
 
 cursor = conexao.cursor()
 
-def exibirGenerosJ():
+def exibir_generosj():
     cursor.execute("SELECT * FROM generosjogo")
     generos = cursor.fetchall()
     print("Lista de Gêneros:")

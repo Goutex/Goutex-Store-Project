@@ -11,7 +11,7 @@ conexao = mysql.connector.connect(
 
 cursor = conexao.cursor()
 
-def exibirInformacoesDosJogos():
+def exibir_informacoes_dos_jogos():
     cursor.execute("""
         SELECT jogos.*, generosjogo.nomegeneroj, generosjogo.descricaogeneroj 
         FROM jogos 

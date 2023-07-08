@@ -32,19 +32,19 @@ def menu():
 
         if opcao == "1":
     
-            adicionargeneroj.adicionarGeneroj()
+            adicionargeneroj.adicionar_generoj()
 
         elif opcao == "2":
-            exibirgenerosj.exibirGenerosJ()
+            exibirgenerosj.exibir_generosj()
 
         elif opcao == "3":
-            atualizargeneroj.atualizarGeneroJ()
+            atualizargeneroj.atualizar_generoj()
 
         elif opcao == "4":
-            descricaogeneroj.exibirDescricaoGeneroJ()
+            descricaogeneroj.exibir_descricao_generoj()
 
         elif opcao == "5":
-            deletargeneroj.deletarGeneroJ()
+            deletargeneroj.deletar_generoj()
         
         elif opcao == "0":
             print("Saindo...")

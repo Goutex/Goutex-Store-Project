@@ -14,7 +14,7 @@ class Loja:
         )
         self.cursor = self.conexao.cursor()
 
-    def pesquisarJogos():
+    def pesquisar_jogos():
         importar.menujogouser.menu()
 
-Loja.pesquisarJogos()
+Loja.pesquisar_jogos()

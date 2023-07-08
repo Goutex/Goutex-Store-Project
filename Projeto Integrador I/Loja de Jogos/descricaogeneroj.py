@@ -12,7 +12,7 @@ conexao = mysql.connector.connect(
 cursor = conexao.cursor()
 
 
-def exibirDescricaoGeneroJ():
+def exibir_descricao_generoj():
         
         cursor.execute("SELECT * FROM generosjogo")
         informacoes = cursor.fetchall()

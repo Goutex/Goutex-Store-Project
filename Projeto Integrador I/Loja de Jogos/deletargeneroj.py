@@ -11,7 +11,7 @@ conexao = mysql.connector.connect(
 
 cursor = conexao.cursor()
 
-def deletarGeneroJ():
+def deletar_generoj():
     cursor = conexao.cursor()
     idgeneroj = input("Digite o ID do genero a ser deletado: ")
     sql = f"DELETE FROM generosjogo WHERE idgeneroj = '{idgeneroj}'"

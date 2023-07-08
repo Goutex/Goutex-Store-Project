@@ -26,11 +26,11 @@ def menu():
         opcao = input("Digite a opção desejada: ")
 
         if opcao == "1":
-            importar.menujogos.mostrarjogos.mostrarJogos()
+            importar.menujogos.mostrarjogos.mostrar_jogos()
             conexao.commit()
 
         elif opcao == "2":
-            importar.menujogos.informacoesdosjogos.exibirInformacoesDosJogos()
+            importar.menujogos.informacoesdosjogos.exibir_informacoes_dos_jogos()
             conexao.commit()
 
         elif opcao == "3":

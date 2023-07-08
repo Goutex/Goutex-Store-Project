@@ -25,7 +25,7 @@ class GoutexStore:
         if self.conexao:
             self.conexao.close()
 
-    def EntrarNaLoja(self):
+    def entrar_na_loja(self):
         Acessando.acessando()
         
 

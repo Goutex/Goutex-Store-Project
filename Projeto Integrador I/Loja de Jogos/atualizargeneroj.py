@@ -11,7 +11,7 @@ conexao = mysql.connector.connect(
 
 cursor = conexao.cursor()
 
-def atualizarGeneroJ():
+def atualizar_generoj():
 
     idgeneroj = int(input("Digite o ID do genero a ser atualizado: "))
     nomegeneroj = input("Digite o novo nome do genero: ")

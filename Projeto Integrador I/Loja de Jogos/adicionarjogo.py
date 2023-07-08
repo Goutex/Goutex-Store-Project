@@ -11,7 +11,7 @@ conexao = mysql.connector.connect(
 
 cursor = conexao.cursor()
 
-def adicionarJogo():
+def adicionar_jogo():
 
     nomejogo = input("Digite o nome do jogo: ")
     idgeneroj= input("Digite o ID do gênero do jogo: ")

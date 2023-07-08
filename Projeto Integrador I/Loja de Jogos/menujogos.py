@@ -37,15 +37,15 @@ def menu():
             conexao.commit()
 
         elif opcao == "2":
-            informacoesdosjogos.exibirInformacoesDosJogos()
-            atualizarjogo.atualizarJogo()
+            informacoesdosjogos.exibir_informacoes_dos_jogos()
+            atualizarjogo.atualizar_jogo()
             conexao.commit()
 
         elif opcao == "3":
-            mostrarjogos.mostrarJogos()
+            mostrarjogos.mostrar_jogos()
         
         elif opcao == "4":
-            informacoesdosjogos.exibirInformacoesDosJogos()
+            informacoesdosjogos.exibir_informacoes_dos_jogos()
 
         elif opcao == "5":
             deletarjogo.deletarJogo()

@@ -9,7 +9,7 @@ conexao = mysql.connector.connect(
     database=database
 )
 
-def verificarLogin():
+def verificar_login():
     cursor = conexao.cursor()
 
     usuario = input("Digite o nome de usuário: ")

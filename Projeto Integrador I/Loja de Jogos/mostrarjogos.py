@@ -11,7 +11,7 @@ conexao = mysql.connector.connect(
 
 cursor = conexao.cursor()
 
-def mostrarJogos():
+def mostrar_jogos():
     cursor.execute("SELECT * FROM jogos")
     jogos = cursor.fetchall()
     print("Lista de Jogos:")

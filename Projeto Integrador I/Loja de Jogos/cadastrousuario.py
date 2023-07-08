@@ -11,7 +11,7 @@ conexao = mysql.connector.connect(
 # Criando o cursor
 cursor = conexao.cursor()
 
-def cadastroUsuario():
+def cadastro_usuario():
     nome = input("\nDigite seu nome completo: ")
     usuario = input("Digite o seu nome de Usuário: ")
     senha = input("Digite uma senha: ")
@@ -40,7 +40,7 @@ def cadastroUsuario():
     except mysql.connector.Error as error:
         print(f"Erro ao cadastrar usuário: {error}")
 
-def definirNick(usuario):
+def definir_nick(usuario):
     nick = input("Digite seu Nick: ")
 
     try:

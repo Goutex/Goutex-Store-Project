@@ -11,7 +11,7 @@ conexao = mysql.connector.connect(
 
 cursor = conexao.cursor()
 
-def atualizarJogo():
+def atualizar_jogo():
 
     idjogo = int(input("Digite o ID do jogo a ser atualizado: "))
     nomejogo = input("Digite o novo nome do jogo: ")

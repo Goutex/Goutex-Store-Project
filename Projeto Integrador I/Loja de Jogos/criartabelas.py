@@ -25,7 +25,7 @@ def tabelaCadastro():
         )
     ''')
 
-def criarTabelaJogos():
+def criar_tabela_jogos():
     
     cursor.execute('''
         "CREATE TABLE IF NOT EXISTS jogos (
@@ -37,7 +37,7 @@ def criarTabelaJogos():
         )          
     ''')
 
-def criarTabelaUsuario():
+def criar_tabela_usuario():
     
     cursor.execute('''
         "CREATE TABLE IF NOT EXISTS usuario (
@@ -47,8 +47,8 @@ def criarTabelaUsuario():
     ''')
 
 # criarTabelaJogos()
-tabelaCadastro()
-criarTabelaUsuario()
+tabela_cadastro()
+criar_tabela_usuario()
 
 conexao.commit()
 conexao.close()

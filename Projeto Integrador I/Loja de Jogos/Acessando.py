@@ -24,7 +24,7 @@ def acessando():
         opcao = input("> ")
 
         if opcao == "1":
-            Login.verificarLogin()
+            Login.verificar_login()
 
         elif opcao == "2":
             Cadastro.cadastro()

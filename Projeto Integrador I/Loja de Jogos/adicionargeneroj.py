@@ -11,7 +11,7 @@ conexao = mysql.connector.connect(
 
 cursor = conexao.cursor()
 
-def adicionarGeneroj():
+def adicionar_generoj():
 
     nomegeneroj = input("Digite um nome para o Genero: ")
     descricaogeneroj = input("Digite uma descricao para o Genero: ")
