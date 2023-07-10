@@ -17,4 +17,4 @@ class Loja:
     def pesquisar_jogos():
         importar.menujogouser.menu()
 
-Loja.pesquisar_jogos()
+# Loja.pesquisar_jogos()

@@ -16,3 +16,4 @@ import menujogouser
 from connector import host, user, password, database
 import cadastrousuario
 import tkinter
+import selecionandojogo

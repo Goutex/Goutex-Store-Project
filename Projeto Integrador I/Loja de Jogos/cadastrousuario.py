@@ -36,7 +36,7 @@ def cadastro_usuario():
             conexao.commit()
             print("Usuário cadastrado com sucesso!")
 
-            definirNick(usuario)
+            definir_nick(usuario)
     except mysql.connector.Error as error:
         print(f"Erro ao cadastrar usuário: {error}")
 
@@ -59,5 +59,8 @@ def definir_nick(usuario):
     except mysql.connector.Error as error:
         print(f"Erro ao adicionar nick: {error}")
 
+# definir_nick()
+
 # Fechando a conexão com o banco de dados
 # conexao.close()
+

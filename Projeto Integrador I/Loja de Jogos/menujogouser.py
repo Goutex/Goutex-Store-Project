@@ -16,17 +16,27 @@ cursor = conexao.cursor()
 def menu():
 
     while True:
-        print("\n--- Sistema de manutencao dos jogos ---")
+        print("\n  --- Goutex Store ---\n")
         print("1. Mostrar Jogos")
         print("2. Mostrar informacoes do Jogos")
         # print("3. Baixar Jogo")
         # print("4. Favoritar Jogo")
         print("0. Sair")
 
-        opcao = input("Digite a opção desejada: ")
+        opcao = input("\nDigite a opção desejada: ")
 
         if opcao == "1":
             importar.menujogos.mostrarjogos.mostrar_jogos()
+
+            print("\n1. Selecionar jogo")
+            print("0. Voltar")
+            selecionar = int(input("> "))
+            if selecionar == 1:
+                importar.selecionandojogo.selecionando_jogo()
+            elif selecionar == 0:
+                return menu()
+            
+
             conexao.commit()
 
         elif opcao == "2":

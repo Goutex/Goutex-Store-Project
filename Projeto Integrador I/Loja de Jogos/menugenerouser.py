@@ -20,7 +20,7 @@ cursor = conexao.cursor()
 def menu():
     
     while True:
-        print("\n--- Sistema de manutencao de generos dos jogos ---")
+        print("\n--- Goutex Store ---")
         print("1. Adicionar Genero")
         print("2. Exibir Generos")
         print("3. Atualizar Genero")

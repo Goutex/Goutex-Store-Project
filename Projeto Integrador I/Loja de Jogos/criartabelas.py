@@ -11,7 +11,7 @@ conexao = mysql.connector.connect(
 
 cursor = conexao.cursor()
 
-def tabelaCadastro():
+def tabela_cadastro():
 
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS cadastrouser (

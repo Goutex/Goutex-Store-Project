@@ -31,7 +31,7 @@ class GoutexStore:
 
     def executar(self):
         self.conectar
-        self.EntrarNaLoja
+        self.entrar_na_loja
         self.desconectar
 
 # Criando uma instância da classe GoutexStore e executando o programa
