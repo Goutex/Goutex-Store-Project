@@ -21,7 +21,7 @@ def menu():
         print("2. Mostrar informacoes do Jogos")
         # print("3. Baixar Jogo")
         # print("4. Favoritar Jogo")
-        print("0. Sair")
+        print("0. Voltar")
 
         opcao = input("\nDigite a opção desejada: ")
 

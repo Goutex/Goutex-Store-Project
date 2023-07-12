@@ -16,16 +16,16 @@ def cadastro_usuario():
     usuario = input("Digite o seu nome de Usuário: ")
     senha = input("Digite uma senha: ")
     ano = input("Digite o ano que você nasceu: ")
-    mes = input("Digite o mês que você nasceu com somente um dígito, Ex: 6\n> ")
+    mes = input("Digite o mês que você nasceu, Ex: 6 ou 12 ")
     dia = input("Digite o dia que você nasceu: ")
-    data_nascimento = f"{ano}-0{mes}-{dia}"
+    data_nascimento = f"{ano}-{mes}-{dia}"
     email = input("Digite seu email: ")
     telefone = input("Digite seu número de telefone: ")
 
     try:
         # Verificar se já existe um usuário com o mesmo nome de usuário (usuariocol)
         cursor.execute("SELECT * FROM cadastrouser WHERE usuario = %s", (usuario,))
-        resultado = cursor.fetchone()
+        resultado = cursor.fetchone()  
 
         if resultado:
             print("Usuário já existente. Por favor, escolha um nome de usuário diferente.")
@@ -54,6 +54,7 @@ def definir_nick(usuario):
             cursor.execute("INSERT INTO usuario (nick, idcadastro) VALUES (%s, %s)", (nick, idcadastro))
             conexao.commit()
             print("Nick adicionado com sucesso!")
+            return idcadastro
         else:
             print("Usuário não encontrado.")
     except mysql.connector.Error as error:

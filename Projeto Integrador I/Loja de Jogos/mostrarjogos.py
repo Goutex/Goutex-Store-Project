@@ -14,6 +14,6 @@ cursor = conexao.cursor()
 def mostrar_jogos():
     cursor.execute("SELECT * FROM jogos")
     jogos = cursor.fetchall()
-    print("Lista de Jogos:")
+    print("\nLista de Jogos:\n")
     for jogo in jogos:
         print(f"{jogo[0]}. {jogo[1]}")

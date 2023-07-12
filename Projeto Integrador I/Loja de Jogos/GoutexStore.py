@@ -11,6 +11,7 @@ class GoutexStore:
         self.database = database
         self.conexao = None
         self.cursor = None
+        self.usuario = None
 
     def conectar(self):
         self.conexao = mysql.connector.connect(
