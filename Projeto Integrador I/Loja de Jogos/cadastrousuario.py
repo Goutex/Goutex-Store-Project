@@ -36,29 +36,29 @@ def cadastro_usuario():
             conexao.commit()
             print("Usuário cadastrado com sucesso!")
 
-            definir_nick(usuario)
+            # definir_nick(usuario)
     except mysql.connector.Error as error:
         print(f"Erro ao cadastrar usuário: {error}")
 
-def definir_nick(usuario):
-    nick = input("Digite seu Nick: ")
+# def definir_nick(usuario):
+#     nick = input("Digite seu Nick: ")
 
-    try:
-        # Verificar se já existe um registro com o mesmo usuário na tabela 'usuario'
-        cursor.execute("SELECT idcadastro FROM cadastrouser WHERE usuario = %s", (usuario,))
-        resultado = cursor.fetchone()
+#     try:
+#         # Verificar se já existe um registro com o mesmo usuário na tabela 'usuario'
+#         cursor.execute("SELECT idcadastro FROM cadastrouser WHERE usuario = %s", (usuario,))
+#         resultado = cursor.fetchone()
 
-        if resultado:
-            idcadastro = resultado[0]
-            # Inserir o nick na tabela 'usuario'
-            cursor.execute("INSERT INTO usuario (nick, idcadastro) VALUES (%s, %s)", (nick, idcadastro))
-            conexao.commit()
-            print("Nick adicionado com sucesso!")
-            return idcadastro
-        else:
-            print("Usuário não encontrado.")
-    except mysql.connector.Error as error:
-        print(f"Erro ao adicionar nick: {error}")
+#         if resultado:
+#             idcadastro = resultado[0]
+#             # Inserir o nick na tabela 'usuario'
+#             cursor.execute("INSERT INTO usuario (nick, idcadastro) VALUES (%s, %s)", (nick, idcadastro))
+#             conexao.commit()
+#             print("Nick adicionado com sucesso!")
+#             return idcadastro
+#         else:
+#             print("Usuário não encontrado.")
+#     except mysql.connector.Error as error:
+#         print(f"Erro ao adicionar nick: {error}")
 
 # definir_nick()
 

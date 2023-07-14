@@ -19,3 +19,6 @@ import tkinter
 import selecionandojogo
 import Login
 import baixarjogo
+import jogosusuario
+import Acessando
+import Cadastro

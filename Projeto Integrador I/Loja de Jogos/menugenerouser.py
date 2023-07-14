@@ -21,32 +21,32 @@ def menu():
     
     while True:
         print("\n--- Goutex Store ---")
-        print("1. Adicionar Genero")
-        print("2. Exibir Generos")
-        print("3. Atualizar Genero")
-        print("4. Exibir descricao do Genero")
-        print("5. Deletar Genero")
-        print("0. Sair")
+        print("A. Adicionar Genero")
+        print("E. Exibir Generos")
+        print("T. Atualizar Genero")
+        print("X. Exibir descricao do Genero")
+        print("D. Deletar Genero")
+        print("S. Sair")
 
-        opcao = input("Digite a opção desejada: ")
+        opcao = input("Digite a opção desejada: ").upper()
 
-        if opcao == "1":
+        if opcao == "A":
     
             adicionargeneroj.adicionar_generoj()
 
-        elif opcao == "2":
+        elif opcao == "E":
             exibirgenerosj.exibir_generosj()
 
-        elif opcao == "3":
+        elif opcao == "T":
             atualizargeneroj.atualizar_generoj()
 
-        elif opcao == "4":
+        elif opcao == "X":
             descricaogeneroj.exibir_descricao_generoj()
 
-        elif opcao == "5":
+        elif opcao == "D":
             deletargeneroj.deletar_generoj()
         
-        elif opcao == "0":
+        elif opcao == "S":
             print("Saindo...")
             break
 

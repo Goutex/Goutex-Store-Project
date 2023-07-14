@@ -13,8 +13,8 @@ cursor = conexao.cursor()
 
 def deletar_generoj():
     cursor = conexao.cursor()
-    idgeneroj = input("Digite o ID do genero a ser deletado: ")
+    idgeneroj = input("\nDigite o ID do genero a ser deletado: ")
     sql = f"DELETE FROM generosjogo WHERE idgeneroj = '{idgeneroj}'"
     cursor.execute(sql)
     conexao.commit()
-    print("Genero deletado com sucesso!")
+    print("\nGenero deletado com sucesso!")

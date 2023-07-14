@@ -1,5 +1,6 @@
 import mysql.connector
 from connector import host, user, password, database
+import selecionandojogo
 
 conexao = mysql.connector.connect(
     host=host,
@@ -12,29 +13,36 @@ cursor = conexao.cursor()
 
 def baixar_jogo():
     
-    # try:
-
+    try:
         print("\nPara baixar o jogo:\n")
+        
         jogo = int(input("Digite o ID do jogo novamente: "))
-        nick = input("Digite seu Usuario: ")
+        usuariozinho = input("Digite seu Usuário: ")
 
         cursor.execute("SELECT idjogo, nomejogo FROM jogos WHERE idjogo = %s", (jogo,))
         resultado = cursor.fetchone()
 
-        nomejogo = resultado[1]
+        if resultado:
+            nomejogo = resultado[1]
 
-        cursor.execute("SELECT usuario, usuario FROM cadastrouser WHERE usuario = %s", (nick,))
-        informacoes = cursor.fetchone()
+            cursor.execute("SELECT usuario FROM cadastrouser WHERE usuario = %s", (usuariozinho,))
+            informacoes = cursor.fetchone()
 
-        usuariozinho = informacoes[1]
+            if informacoes:
 
-        print(usuariozinho,nomejogo)
-        # SELECT WHERE nomejogo and jogo = tal
-        cursor.execute("INSERT INTO baixados (usuario, jogosbaixados) VALUES (%s, %s)", (usuariozinho, nomejogo))
-        conexao.commit()
-        print("Jogo baixado com sucesso!")
+                cursor.execute("INSERT INTO baixados (usuario, jogosbaixados) VALUES (%s, %s)", (usuariozinho, nomejogo))
+                conexao.commit()
+                print("\nJogo baixado com sucesso!")
+                return selecionandojogo.selecionando_jogo()
+            else:
+                print("Usuário não encontrado.")
+                return
+        else:
+            print("Jogo não encontrado.")
+            return
 
-    # except:error = voce ja tem esse jogo!
-        
+    except Exception as e:
+        print("Voce ja tem esse jogo!")
+        selecionandojogo.selecionando_jogo()
+    
 # baixar_jogo()
-# conexao.close()

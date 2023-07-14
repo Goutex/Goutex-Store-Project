@@ -1,8 +1,6 @@
 import importar
-
 import mysql.connector
 from connector import host, user, password, database
-
 conexao = mysql.connector.connect(
 
     host = host,
@@ -17,45 +15,36 @@ def menu():
 
     while True:
         print("\n  --- Goutex Store ---\n")
-        print("1. Mostrar Jogos")
-        print("2. Mostrar informacoes do Jogos")
-        # print("3. Baixar Jogo")
-        # print("4. Favoritar Jogo")
-        print("0. Voltar")
+        print("M. Mostrar jogos da Loja")
+        print("J. Mostrar meus jogos")
+        print("S. Sair")
 
-        opcao = input("\nDigite a opção desejada: ")
+        opcao = input("\nDigite a opção desejada: ").upper()
 
-        if opcao == "1":
+        if opcao == "S":
+    
+            importar.Acessando.acessando()
+        
+        elif opcao == "M":
             importar.menujogos.mostrarjogos.mostrar_jogos()
 
-            print("\n1. Selecionar jogo")
-            print("0. Voltar")
-            selecionar = int(input("> "))
-            if selecionar == 1:
+            print("\nS. Selecionar jogo")
+            print("V. Voltar")
+            selecionar = input("> ").upper()
+            if selecionar == "S":
                 importar.selecionandojogo.selecionando_jogo()
-            elif selecionar == 0:
+            elif selecionar == "V":
                 return menu()
             
 
             conexao.commit()
 
-        elif opcao == "2":
-            importar.menujogos.informacoesdosjogos.exibir_informacoes_dos_jogos()
-            conexao.commit()
-
-        elif opcao == "3":
-            pass
+        elif opcao == "J":
+            importar.jogosusuario.jogos_usuario()
         
         elif opcao == "4":
             pass
-
-        elif opcao == "0":
-            break
-        
+ 
         else:
             print("Opção inválida. Digite novamente.")
 
-# menu()
-
-# cursor.close()
-# conexao.close()

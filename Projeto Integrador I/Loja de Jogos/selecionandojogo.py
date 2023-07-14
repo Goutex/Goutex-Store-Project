@@ -18,12 +18,13 @@ cursor = conexao.cursor()
 
 def selecionando_jogo():
 
-    jogo = int(input("\nDigite o ID do jogo que você quer:\n\nou\n\n0. Voltar\n1. Mostrar jogos novamente\n\n> "))
+    jogo = (input("\nDigite o ID do jogo que você quer:\n\nou\n\nV. Voltar\nM. Mostrar jogos novamente\n\n> ")).upper()
 
-    if jogo == 0:
+    if jogo == "V":
         return importar.menujogouser.menu()
-    elif jogo == 1:
-        return importar.menujogos.mostrarjogos.mostrar_jogos()
+    elif jogo == "M":
+        importar.menujogos.mostrarjogos.mostrar_jogos()
+        return selecionando_jogo()
 
     cursor.execute("SELECT nomejogo FROM jogos WHERE idjogo = %s", (jogo,))
     resultado = cursor.fetchone()
@@ -35,12 +36,12 @@ def selecionando_jogo():
 def gostaria_de_fazer():
 
     print("\nO que voce gostaria de fazer?\n")
-    print("1. Baixar Jogo")
-    print("0. Voltar\n")
+    print("B. Baixar Jogo")
+    print("V. Voltar\n")
 
-    fazer = int(input("> "))
+    fazer = input("> ").upper()
 
-    if fazer == 1:
+    if fazer == "B":
         baixarjogo.baixar_jogo()
         
     else:

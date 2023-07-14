@@ -1,4 +1,4 @@
 host = "localhost"
 user = "root"
-password = "Sen@c2021"
-database = "projetinho"
+password = "180957"
+database = "projeto1"

@@ -22,12 +22,12 @@ class Admin:
 
     def run(self):
         while True:
-            print("\n--- Loja de Jogos ---")
+            print("\n--- Loja de Jogos ---\n")
             print("1. Gerenciar Jogos")
             print("2. Gerenciar Gêneros")
             print("0. Sair")
 
-            opcao = input("Digite a opção desejada: ")
+            opcao = input("\nDigite a opção desejada: ")
 
             if opcao == "1":
                 self.exibir_menu_jogos()
@@ -36,8 +36,7 @@ class Admin:
                 self.exibir_menu_generos()
 
             elif opcao == "0":
-                print("Saindo...")
-                break
+                return
 
             else:
                 print("\nOpção inválida. Digite novamente.")
@@ -46,4 +45,4 @@ class Admin:
         self.conexao.close()
 
 admin = Admin()
-# admin.run()
+admin.run()

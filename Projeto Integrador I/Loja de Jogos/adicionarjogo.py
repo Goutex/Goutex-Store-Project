@@ -13,14 +13,14 @@ cursor = conexao.cursor()
 
 def adicionar_jogo():
 
-    nomejogo = input("Digite o nome do jogo: ")
-    idgeneroj= input("Digite o ID do gênero do jogo: ")
-    descricaojogo = input("Digite uma descricao para o jogo: ")
+    nomejogo = input("\nDigite o nome do jogo: ")
+    idgeneroj= input("\nDigite o ID do gênero do jogo: ")
+    descricaojogo = input("\nDigite uma descricao para o jogo: ")
     sql = "INSERT INTO jogos (nomejogo, idgeneroj, descricaojogo) VALUES (%s, %s, %s)"
     valores = (nomejogo, idgeneroj, descricaojogo)
     cursor.execute(sql, valores)
     conexao.commit()
-    print("Jogo adicionado com sucesso!")
+    print("\nJogo adicionado com sucesso!")
 
 # adicionarJogo()
 # cursor.close()

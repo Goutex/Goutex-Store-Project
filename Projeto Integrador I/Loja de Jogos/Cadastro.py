@@ -20,16 +20,16 @@ def cadastro():
 
     while True:
         print("\n--- Podemos comecar? ---:")
-        print("1. Sim")
-        print("2. Nao")
-        opcao = input("> ")
+        print("S. Sim")
+        print("N. Nao")
+        opcao = input("> ").upper()
 
-        if opcao == "1":
+        if opcao == "S":
             importar.cadastrousuario.cadastro_usuario()
             print("\nAgora que voce terminou o cadastro pode fazer o login!")
             break
 
-        elif opcao == "2":
+        elif opcao == "N":
             break
 
 # cadastro()

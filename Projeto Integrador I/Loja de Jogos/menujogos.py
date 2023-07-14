@@ -21,7 +21,7 @@ cursor = conexao.cursor()
 def menu():
 
     while True:
-        print("\n--- Sistema de manutencao dos jogos ---")
+        print("\n--- Sistema de manutencao dos jogos ---\n")
         print("1. Adicionar jogo")
         print("2. Atualizar jogo")
         print("3. Mostrar Jogos")
@@ -29,11 +29,11 @@ def menu():
         print("5. Deletar Jogo")
         print("0. Sair")
 
-        opcao = input("Digite a opção desejada: ")
+        opcao = input("\nDigite a opção desejada: ")
 
         if opcao == "1":
-            exibirgenerosj.exibirGenerosJ()
-            adicionarjogo.adicionarJogo()
+            exibirgenerosj.exibir_generosj()
+            adicionarjogo.adicionar_jogo()
             conexao.commit()
 
         elif opcao == "2":
@@ -48,7 +48,7 @@ def menu():
             informacoesdosjogos.exibir_informacoes_dos_jogos()
 
         elif opcao == "5":
-            deletarjogo.deletarJogo()
+            deletarjogo.deletar_jogo()
 
         elif opcao == "0":
             break

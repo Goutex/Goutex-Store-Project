@@ -14,7 +14,7 @@ cursor = conexao.cursor()
 def exibir_generosj():
     cursor.execute("SELECT * FROM generosjogo")
     generos = cursor.fetchall()
-    print("Lista de Gêneros:")
+    print("\nLista de Gêneros:\n")
     for genero in generos:
         print(f"{genero[0]}. {genero[1]}")
 

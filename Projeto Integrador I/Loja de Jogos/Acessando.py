@@ -17,20 +17,20 @@ def acessando():
     print("\n         --- Seja Bem Vindo a Goutex Store --- ")
 
     while True:
-        print(f"\n      --- Fazer Login --- | --- Sou Novo Aqui --- \n")
-        print("1. Entrar")
-        print("2. Fazer Cadastro")
-        print("3. Sair")
-        opcao = input("> ")
+        print(f"\n                --- Area de Acesso --- \n")
+        print("E. Entrar")
+        print("F. Fazer Cadastro")
+        print("S. Sair")
+        opcao = input("> ").upper()
 
-        if opcao == "1":
+        if opcao == "E":
             Login.verificar_login()
 
-        elif opcao == "2":
+        elif opcao == "F":
             Cadastro.cadastro()
 
-        elif opcao == "3":
-            print("Tchau Tchau")
+        elif opcao == "S":
+            print("\nTchau Tchau")
             break
 
-acessando()
+# acessando()

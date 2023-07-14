@@ -13,9 +13,9 @@ cursor = conexao.cursor()
 
 def deletar_jogo():
     cursor = conexao.cursor()
-    idjogo = input("Digite o ID do jogo a ser deletado: ")
+    idjogo = input("\nDigite o ID do jogo a ser deletado: ")
     sql = f"DELETE FROM jogos WHERE idjogo = '{idjogo}'"
     cursor.execute(sql)
     conexao.commit()
-    print("Jogo deletado com sucesso!")
+    print("\nJogo deletado com sucesso!")
     
