@@ -1,10 +1,7 @@
 import mysql.connector
 from connector import host, user, password, database
 import importar
-import Acessando
 from importar import Login, Cadastro
-
-
 
 class GoutexStore:
     def __init__(self):
@@ -17,44 +14,54 @@ class GoutexStore:
         self.usuario = None
 
     def conectar(self):
-        self.conexao = mysql.connector.connect(
-            host=self.host,
-            user=self.user,
-            password=self.password,
-            database=self.database
-        )
-        self.cursor = self.conexao.cursor()
+        try:
+            self.conexao = mysql.connector.connect(
+                host=self.host,
+                user=self.user,
+                password=self.password,
+                database=self.database
+            )
+            self.cursor = self.conexao.cursor()
+        except mysql.connector.Error as err:
+            print(f"Erro ao conectar ao banco de dados: {err}")
 
     def desconectar(self):
         if self.conexao:
             self.conexao.close()
 
     def entrar_na_loja(self):
-        
         print("\n         --- Seja Bem Vindo a Goutex Store --- ")
 
         while True:
-            print(f"\n                --- Area de Acesso --- \n")
+            print(f"\n                --- Área de Acesso --- \n")
             print("E. Entrar")
             print("F. Fazer Cadastro")
             print("S. Sair")
             opcao = input("> ").upper()
 
-            if opcao == "E":
-                importar.Login.verificar_login()
+            try:
+                if opcao == "E":
+                    Login.verificar_login()
 
-            elif opcao == "F":
-                importar.Cadastro.cadastro()
+                elif opcao == "F":
+                    Cadastro.cadastro()
 
-            elif opcao == "S":
-                print("\nTchau Tchau")
-                break
-        
+                elif opcao == "S":
+                    print("\nTchau Tchau")
+                    break
+                else:
+                    raise ValueError("\nOpção inválida! Por favor, selecione uma opção válida.")
+            except Exception as e:
+                print(f"{e}")
 
     def executar(self):
-        self.conectar()
-        self.entrar_na_loja()
-        self.desconectar()
+        try:
+            self.conectar()
+            self.entrar_na_loja()
+        except Exception as e:
+            print(f"Erro durante a execução: {e}")
+        finally:
+            self.desconectar()
 
 goutex_store = GoutexStore()
-goutex_store.executar() 
+goutex_store.executar()

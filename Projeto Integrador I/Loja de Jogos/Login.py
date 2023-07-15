@@ -11,23 +11,30 @@ conexao = mysql.connector.connect(
 )
 
 def verificar_login():
-    cursor = conexao.cursor()
+    while True:
+        usuario = input("\nDigite o nome de usuário: ")
+        # if usuario.upper() == "S":
+        #     print("Tchau Tchau")
+        #     break
 
-    usuario = input("\nDigite o nome de usuário: ")
-    senha = input("Digite a senha: ")
+        senha = input("Digite a senha: ")
 
-    if usuario == "admin" and senha == "admin":
-        admin.run()
-    else:
-        sql = "SELECT * FROM cadastrouser WHERE usuario = %s AND senha = %s"
-        values = (usuario, senha)
-
-        cursor.execute(sql, values)
-        resultado = cursor.fetchone()
-
-        if resultado:
-            print("\nLogin realizado com sucesso!")
-            Loja.pesquisar_jogos()
+        if usuario == "admin" and senha == "admin":
+            admin.run()
+            break
         else:
-            print("Usuário ou senha inválidos.")
+            cursor = conexao.cursor()
+            sql = "SELECT * FROM cadastrouser WHERE usuario = %s AND senha = %s"
+            values = (usuario, senha)
 
+            cursor.execute(sql, values)
+            resultado = cursor.fetchone()
+
+            if resultado:
+                print("\nLogin realizado com sucesso!")
+                Loja.pesquisar_jogos()
+                break
+            else:
+                print("\nUsuário ou senha inválidos. Tente novamente.")
+
+# verificar_login()
