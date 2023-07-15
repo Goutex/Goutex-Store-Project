@@ -64,4 +64,4 @@ class GoutexStore:
             self.desconectar()
 
 goutex_store = GoutexStore()
-goutex_store.executar()
+goutex_store.executar() 
