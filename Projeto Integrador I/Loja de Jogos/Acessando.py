@@ -14,10 +14,10 @@ conexao = mysql.connector.connect(
 
 
 def acessando():
-    print("\n         --- Seja Bem Vindo a Goutex Store --- ")
+    print("\n--- Seja Bem Vindo à Goutex Store ---")
 
     while True:
-        print(f"\n                --- Area de Acesso --- \n")
+        print("\n--- Área de Acesso ---")
         print("E. Entrar")
         print("F. Fazer Cadastro")
         print("S. Sair")
@@ -32,5 +32,8 @@ def acessando():
         elif opcao == "S":
             print("\nTchau Tchau")
             break
+
+        else:
+            print("\nOpção inválida. Digite novamente.")
 
 # acessando()

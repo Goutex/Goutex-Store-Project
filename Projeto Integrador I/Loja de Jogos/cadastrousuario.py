@@ -1,7 +1,6 @@
 import mysql.connector
 from connector import host, user, password, database
 import re
-from nameparser import HumanName
 
 conexao = mysql.connector.connect(
     host=host,
@@ -25,60 +24,66 @@ def validar_email(email):
     return False
 
 def validar_telefone(telefone):
-    # Verifica se o telefone possui o formato correto (apenas números e tamanho de 10 dígitos)
-    if re.match(r"\d{10}", telefone):
+    # Verifica se o telefone possui o formato correto (entre 10 e 14 dígitos)
+    if re.match(r"\d{10,14}", telefone):
         return True
     return False
 
-def validar_nome(nome_completo):
-    # Verifica se o nome possui pelo menos um sobrenome
-    name = HumanName(nome_completo)
-    if name.last:
+def validar_nome(nome):
+    # Verifica se o nome possui pelo menos duas palavras (nome e sobrenome)
+    if re.match(r"\b\w+\b \b\w+\b", nome):
+        return True
+    return False
+
+def validar_senha(senha):
+    # Verifica se a senha atende aos critérios necessários
+    if len(senha) >= 8:
         return True
     return False
 
 def cadastro_usuario():
-    while True:
-        nome = input("\nDigite seu nome completo: ")
-        usuario = input("Digite o seu nome de Usuário: ")
-        senha = input("Digite uma senha: ")
-        ano = input("Digite o ano que você nasceu: ")
-        mes = input("Digite o mês que você nasceu (Ex: 6 ou 12): ")
-        dia = input("Digite o dia que você nasceu: ")
-        data_nascimento = f"{ano}-{mes}-{dia}"
+    nome = input("\nDigite seu nome completo: ")
+    while not validar_nome(nome):
+        print("Nome inválido. Digite novamente.")
+        nome = input("Digite seu nome completo: ")
+
+    data_nascimento = input("Digite a data de nascimento (YYYY-MM-DD): ")
+    while not validar_data(data_nascimento):
+        print("Data de nascimento inválida. Digite novamente.")
+        data_nascimento = input("Digite a data de nascimento (YYYY-MM-DD): ")
+
+    email = input("Digite seu email: ")
+    while not validar_email(email):
+        print("Email inválido. Digite novamente.")
         email = input("Digite seu email: ")
-        telefone = input("Digite seu número de telefone (apenas números, 10 dígitos): ")
 
-        if not validar_data(data_nascimento):
-            print("Data de nascimento inválida. Digite novamente.")
-            continue
+    telefone = input("Digite seu número de telefone (entre 10 e 14 dígitos): ")
+    while not validar_telefone(telefone):
+        print("Telefone inválido. Digite novamente.")
+        telefone = input("Digite seu número de telefone (entre 10 e 14 dígitos): ")
 
-        if not validar_email(email):
-            print("Email inválido. Digite novamente.")
-            continue
+    usuario = input("Digite o seu nome de Usuário: ")
+    while True:
+        senha = input("Digite uma senha (mínimo 8 caracteres): ")
+        if validar_senha(senha):
+            break
+        else:
+            print("Senha inválida. Digite novamente.")
 
-        if not validar_telefone(telefone):
-            print("Telefone inválido. Digite novamente.")
-            continue
+    try:
+        cursor.execute("SELECT * FROM cadastrouser WHERE usuario = %s", (usuario,))
+        resultado = cursor.fetchone()
 
-        if not validar_nome(nome):
-            print("Nome inválido. Digite novamente.")
-            continue
+        if resultado:
+            print("Usuário já existente. Por favor, escolha um nome de usuário diferente.")
+            cadastro_usuario()  # Chama novamente a função para recomeçar o cadastro
+        else:
+            cursor.execute("INSERT INTO cadastrouser (usuario, senha, nome, email, data_nascimento, telefone) VALUES (%s, %s, %s, %s, %s, %s)",
+                           (usuario, senha, nome, email, data_nascimento, telefone))
+            conexao.commit()
+            print("Usuário cadastrado com sucesso!")
 
-        try:
-            cursor.execute("SELECT * FROM cadastrouser WHERE usuario = %s", (usuario,))
-            resultado = cursor.fetchone()
+    except mysql.connector.Error as error:
+        print(f"Erro ao cadastrar usuário: {error}")
 
-            if resultado:
-                print("Usuário já existente. Por favor, escolha um nome de usuário diferente.")
-            else:
-                cursor.execute("INSERT INTO cadastrouser (usuario, senha, nome, email, data_nascimento, telefone) VALUES (%s, %s, %s, %s, %s, %s)",
-                               (usuario, senha, nome, email, data_nascimento, telefone))
-                conexao.commit()
-                print("Usuário cadastrado com sucesso!")
-                break
-
-        except mysql.connector.Error as error:
-            print(f"Erro ao cadastrar usuário: {error}")
-
-cadastro_usuario()
+# cadastro_usuario()

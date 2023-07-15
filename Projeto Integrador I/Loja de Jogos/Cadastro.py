@@ -3,37 +3,33 @@ from connector import host, user, password, database
 import importar
 
 conexao = mysql.connector.connect(
-
-    host = host,
-    user = user,
-    password= password,  
-    database= database,  
+    host=host,
+    user=user,
+    password=password,
+    database=database
 )
 
-# Criando o cursor
 cursor = conexao.cursor()
 
 def cadastro():
-
-    print("\n                      --- Bem Vindo! --- \n")
-    print(" Para acessar a Goutex Store voce precisa fazer seu cadastro! ")
+    print("\n--- Bem-vindo! ---")
+    print("Para acessar a Goutex Store, você precisa fazer seu cadastro!")
 
     while True:
-        print("\n--- Podemos comecar? ---:")
+        print("\n--- Podemos começar? ---")
         print("S. Sim")
-        print("N. Nao")
+        print("N. Não")
         opcao = input("> ").upper()
 
         if opcao == "S":
             importar.cadastrousuario.cadastro_usuario()
-            print("\nAgora que voce terminou o cadastro pode fazer o login!")
+            print("\nAgora que você terminou o cadastro, pode fazer o login!")
             break
 
         elif opcao == "N":
             break
 
+        else:
+            print("Opção inválida. Digite novamente.")
+
 # cadastro()
-# menu()
-
-
-

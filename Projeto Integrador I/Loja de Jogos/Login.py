@@ -12,10 +12,11 @@ conexao = mysql.connector.connect(
 
 def verificar_login():
     while True:
-        usuario = input("\nDigite o nome de usuário: ")
-        # if usuario.upper() == "S":
-        #     print("Tchau Tchau")
-        #     break
+        usuario = input("\nDigite o nome de usuário (ou 'S' para sair): ")
+
+        if usuario.upper() == "S":
+            print("\nTchau Tchau")
+            break
 
         senha = input("Digite a senha: ")
 
@@ -38,3 +39,5 @@ def verificar_login():
                 print("\nUsuário ou senha inválidos. Tente novamente.")
 
 # verificar_login()
+
+# conexao.close()

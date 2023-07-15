@@ -5,19 +5,17 @@ from connector import user, database, password, host
 class Admin:
     def __init__(self):
         self.conexao = mysql.connector.connect(
-            host = host,
-            user = user,
-            password= password,
-            database= database
+            host=host,
+            user=user,
+            password=password,
+            database=database
         )
         self.cursor = self.conexao.cursor()
 
     def exibir_menu_jogos(self):
-
         importar.menujogos.menu()
 
     def exibir_menu_generos(self):
-
         importar.menugenerosj.menu()
 
     def run(self):
