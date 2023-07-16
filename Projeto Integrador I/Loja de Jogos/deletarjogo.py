@@ -18,8 +18,14 @@ def deletar_jogo():
                 continue
 
             cursor = conexao.cursor()
-            sql = f"DELETE FROM jogos WHERE idjogo = '{idjogo}'"
-            cursor.execute(sql)
+
+            cursor.execute("SELECT nomejogo FROM jogos WHERE idjogo = %s", (idjogo,))
+            resultado = cursor.fetchone()
+            jogo = resultado[0]
+            print(jogo)
+            cursor.execute("DELETE FROM baixados WHERE jogosbaixados = %s", (jogo,))
+            cursor.execute("DELETE FROM jogos WHERE idjogo = %s", (idjogo,))
+
             conexao.commit()
             print("\nJogo deletado com sucesso!")
             break

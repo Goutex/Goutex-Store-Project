@@ -31,7 +31,7 @@ def jogos_usuario():
 
 def jogar_voltar():
     while True:
-        fazer = input("\nO que você deseja fazer?\nJ. Jogar\nV. Voltar\n> ").upper()
+        fazer = input("\nO que você deseja fazer?\n\nJ. Jogar\nD. Deletar jogo\nV. Voltar\n> ").upper()
 
         if fazer == "J":
             jogo = input("\nDigite o nome do jogo que você quer jogar: ").capitalize()
@@ -43,10 +43,22 @@ def jogar_voltar():
                 jogo = resultado[0]
                 print(f"\nAbrindo {jogo}!")
                 importar.menujogouser.menu()
-                break
+                
             else:
                 print("\nJogo não encontrado.")
                 continue
+
+        elif fazer == "D":
+            jogo = input("\nDigite o nome do jogo que voce quer deletar: ").capitalize()
+            cursor.execute("SELECT jogosbaixados FROM baixados WHERE jogosbaixados = %s", (jogo,))
+            resultado = cursor.fetchone()
+            if resultado:
+                jogo = resultado[0]
+                cursor.execute("DELETE FROM baixados WHERE jogosbaixados = %s", (jogo,))
+                print(f"\n{jogo} deletado com sucesso!")
+                conexao.commit()
+            else:
+                print("\nJogo nao encontrado.")
 
         elif fazer == "V":
             importar.menujogouser.menu()

@@ -35,11 +35,17 @@ def baixar_jogo():
                 informacoes = cursor.fetchone()
 
                 if informacoes:
+                    cursor.execute("SELECT * FROM baixados WHERE usuario = %s AND jogosbaixados = %s", (usuariozinho, nomejogo))
+                    jogobaixado = cursor.fetchone()
 
-                    cursor.execute("INSERT INTO baixados (usuario, jogosbaixados) VALUES (%s, %s)", (usuariozinho, nomejogo))
-                    conexao.commit()
-                    print("\nJogo baixado com sucesso!")
-                    return selecionandojogo.selecionando_jogo()
+                    if jogobaixado:
+                        print("\nVocê já possui esse jogo.")
+                        return selecionandojogo.selecionando_jogo()
+                    else:
+                        cursor.execute("INSERT INTO baixados (usuario, jogosbaixados) VALUES (%s, %s)", (usuariozinho, nomejogo))
+                        conexao.commit()
+                        print("\nJogo baixado com sucesso!")
+                        return selecionandojogo.selecionando_jogo()
                 else:
                     print("Usuário não encontrado.")
                     return
@@ -52,8 +58,3 @@ def baixar_jogo():
             continue
 
         break
-
-# baixar_jogo()
-
-# cursor.close()
-# conexao.close()

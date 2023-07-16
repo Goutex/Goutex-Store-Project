@@ -1,6 +1,7 @@
 import importar
 import Cadastro
 import Login
+import sys
 
 import mysql.connector
 from connector import host, user, password, database
@@ -24,16 +25,18 @@ def acessando():
         opcao = input("> ").upper()
 
         if opcao == "E":
-            Login.verificar_login()
+            Login.verificar_login() 
 
         elif opcao == "F":
-            Cadastro.cadastro()
+            Cadastro.cadastro()  
 
         elif opcao == "S":
-            print("\nTchau Tchau")
-            break
+            print("\n --- Tchau Tchau --- \n")
+            sys.exit()  
 
         else:
             print("\nOpção inválida. Digite novamente.")
+
+   
 
 # acessando()

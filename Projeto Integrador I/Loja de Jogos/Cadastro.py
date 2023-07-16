@@ -12,7 +12,7 @@ conexao = mysql.connector.connect(
 cursor = conexao.cursor()
 
 def cadastro():
-    print("\n--- Bem-vindo! ---")
+    print("\n                   --- Bem-vindo! ---")
     print("Para acessar a Goutex Store, você precisa fazer seu cadastro!")
 
     while True:

@@ -12,7 +12,7 @@ cursor = conexao.cursor()
 
 def adicionar_jogo():
     while True:
-        nomejogo = input("\nDigite o nome do jogo: ")
+        nomejogo = input("\nDigite o nome do jogo: ").capitalize()
         if not nomejogo.strip():
             print("Nome inválido. Digite novamente.")
         else:

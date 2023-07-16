@@ -33,7 +33,7 @@ def selecionando_jogo():
 
 def gostaria_de_fazer():
     while True:
-        print("\nO que você gostaria de fazer?")
+        print("\nO que você gostaria de fazer?\n")
         print("B. Baixar Jogo")
         print("V. Voltar")
 
