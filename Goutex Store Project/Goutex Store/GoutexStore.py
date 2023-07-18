@@ -1,3 +1,5 @@
+#This file starts the Store
+
 import mysql.connector
 from connector import host, user, password, database
 import importar

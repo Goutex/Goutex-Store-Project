@@ -1,3 +1,5 @@
+#This file creates the tables in the MySql Schema used in the Project
+
 import mysql.connector
 from importar import host, user, password, database
 # Estabelecer a conexão com o banco de dados
