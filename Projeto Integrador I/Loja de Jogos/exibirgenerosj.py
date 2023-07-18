@@ -19,8 +19,7 @@ def exibir_generosj():
         print(f"{genero[0]}. {genero[1]}")
 
 # exibirGenerosJ()
-# cursor.close()
-# conexao.close()
+
 
 
     

@@ -40,4 +40,4 @@ def verificar_login():
 
 # verificar_login()
 
-# conexao.close()
+

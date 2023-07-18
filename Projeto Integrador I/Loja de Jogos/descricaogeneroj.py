@@ -28,6 +28,5 @@ def exibir_descricao_generoj():
             print("Nenhuma informacao foi cadastrada.")
 
 # exibirDescricaoGeneroJ()
-# cursor.close()
-# conexao.close()        
+     
 

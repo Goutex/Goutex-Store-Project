@@ -46,5 +46,4 @@ def atualizar_jogo():
 
 # atualizar_jogo()
 
-# cursor.close()
-# conexao.close()
+

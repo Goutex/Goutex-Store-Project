@@ -32,3 +32,5 @@ def mostrar_jogos():
             print("\nOpção inválida. Digite novamente.")
 
     conexao.commit()
+
+# mostrar_jogos()

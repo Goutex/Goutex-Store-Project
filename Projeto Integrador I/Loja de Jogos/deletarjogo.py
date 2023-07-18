@@ -38,4 +38,3 @@ def deletar_jogo():
 
 # deletar_jogo()
 
-# conexao.close()

@@ -31,5 +31,3 @@ def exibir_informacoes_dos_jogos():
         # print("\n")
 
 # exibirInformacoesDosJogos()
-# cursor.close()
-# conexao.close()

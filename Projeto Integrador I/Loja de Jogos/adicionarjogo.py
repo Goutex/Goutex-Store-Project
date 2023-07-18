@@ -45,5 +45,4 @@ def adicionar_jogo():
 
 # adicionar_jogo()
 
-# cursor.close()
-# conexao.close()
+

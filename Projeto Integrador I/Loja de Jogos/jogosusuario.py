@@ -70,4 +70,4 @@ def jogar_voltar():
 
 # jogos_usuario()
 
-# conexao.close()
+

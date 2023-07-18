@@ -38,5 +38,4 @@ def adicionar_generoj():
 
 # adicionar_generoj()
 
-# cursor.close()
-# conexao.close()
+

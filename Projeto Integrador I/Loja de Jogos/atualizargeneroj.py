@@ -39,5 +39,4 @@ def atualizar_generoj():
 
 # atualizar_generoj()
 
-# cursor.close()
-# conexao.close()
+

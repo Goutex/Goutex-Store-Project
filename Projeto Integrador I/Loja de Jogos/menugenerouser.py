@@ -55,5 +55,3 @@ def menu():
 
 # menu()
 
-# cursor.close()
-# conexao.close()

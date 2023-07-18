@@ -31,7 +31,7 @@ def validar_email(email):
 
 def validar_telefone(telefone):
     # Verifica se o telefone possui o formato correto (entre 10 e 14 dígitos)
-    if re.match(r"\d{10,14}", telefone):
+    if re.match(r"\d{10,14}$", telefone):
         cursor.execute("SELECT * FROM cadastrouser WHERE telefone = %s", (telefone,))
         resultado = cursor.fetchone()
         if resultado:
@@ -83,14 +83,15 @@ def cadastro_usuario():
         if resultado:
             print("\nUsuário já existente. Por favor, escolha um nome de usuário diferente.\n")
         else:
-            senha = input("Digite uma senha (mínimo 8 caracteres): ")
-            if validar_senha(senha):
-                cursor.execute("INSERT INTO cadastrouser (usuario, senha, nome, email, data_nascimento, telefone) VALUES (%s, %s, %s, %s, %s, %s)",
-                        (usuario, senha, nome, email, data_nascimento, telefone))
-                conexao.commit()
-                print("Usuário cadastrado com sucesso!")
-                break
-            else:
-                print("Senha inválida. Digite novamente.")
+            while True:
+                senha = input("Digite uma senha (mínimo 8 caracteres): ")
+                if validar_senha(senha):
+                    cursor.execute("INSERT INTO cadastrouser (usuario, senha, nome, email, data_nascimento, telefone) VALUES (%s, %s, %s, %s, %s, %s)",
+                            (usuario, senha, nome, email, data_nascimento, telefone))
+                    conexao.commit()
+                    print("Usuário cadastrado com sucesso!")
+                    break
+                else:
+                    print("Senha inválida. Digite novamente.")
 
 # cadastro_usuario()

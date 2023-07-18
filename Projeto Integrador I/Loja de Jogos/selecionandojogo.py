@@ -50,4 +50,4 @@ def gostaria_de_fazer():
 # selecionando_jogo()
 # gostaria_de_fazer()
 
-# conexao.close()
+

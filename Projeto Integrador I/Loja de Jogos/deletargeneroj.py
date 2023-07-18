@@ -34,4 +34,4 @@ def deletar_generoj():
 
 # deletar_generoj()
 
-# conexao.close()
+
